@@ -20,3 +20,12 @@
  
  $(TST_NAME): $(TST_OBJS) $(LIB_NAME)
  	@$(LIBTOOL) --mode=link $(CC) $(LDFLAGS) -o $(TST_NAME) $(TST_OBJS) $(LIB_NAME) $(LIBS)
+@@ -98,7 +98,7 @@
+ 	$(SHTOOL) install -c -m 755 al-config $(DESTDIR)$(bindir)/
+ 	$(SHTOOL) install -c -m 644 al.h $(DESTDIR)$(includedir)/
+ 	$(SHTOOL) install -c -m 644 al.3 $(DESTDIR)$(mandir)/man3/
+-	@$(LIBTOOL) --mode=install $(SHTOOL) install -c -m 644 libal.la $(DESTDIR)$(libdir)/
++	@$(LIBTOOL) --mode=install $(SHTOOL) install -c -m 755 libal.la $(DESTDIR)$(libdir)/
+ 
+ uninstall:
+ 	@$(LIBTOOL) --mode=uninstall $(RM) $(DESTDIR)$(libdir)/libal.la
