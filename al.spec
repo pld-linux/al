@@ -2,7 +2,7 @@ Summary:	OSSP al - Assembly Line
 Summary(pl):	OSSP al - biblioteka Assembly Line ("linii monta¿owej")
 Name:		al
 Version:	0.9.1
-Release:	0.1
+Release:	0.2
 Epoch:		0
 License:	distributable (see README)
 Group:		Libraries
@@ -12,6 +12,7 @@ Patch0:		%{name}-ac.patch
 URL:		http://www.ossp.org/pkg/lib/al/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	ex-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,7 +68,8 @@ mv -f aclocal.m4 acinclude.m4
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%configure
+%configure \
+	--with-ex
 %{__make}
 #%%{__make} check //segfaults after passing tests
 
