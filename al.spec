@@ -3,6 +3,7 @@ Summary(pl):	OSSP al - biblioteka Assembly Line ("linii monta¿owej")
 Name:		al
 Version:	0.9.1
 Release:	0.1
+Epoch:		0
 License:	distributable (see README)
 Group:		Libraries
 Source0:	ftp://ftp.ossp.org/pkg/lib/al/%{name}-%{version}.tar.gz
