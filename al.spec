@@ -73,6 +73,7 @@ mv -f aclocal.m4 acinclude.m4
 %{__aclocal}
 %{__autoconf}
 %configure \
+	%{?debug:--enable-debug} \
 	--with-ex
 %{__make}
 
