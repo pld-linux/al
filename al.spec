@@ -1,18 +1,17 @@
 Summary:	OSSP al - Assembly Line
-Summary(pl):	OSSP al - biblioteka Assembly Line
+Summary(pl):	OSSP al - biblioteka Assembly Line ("linii monta¿owej")
 Name:		al
 Version:	0.9.1
 Release:	0.1
 License:	distributable (see README)
 Group:		Libraries
-Source0:	ftp://ftp.ossp.org/pkg/lib/%{name}/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.ossp.org/pkg/lib/al/%{name}-%{version}.tar.gz
 # Source0-md5:	eba90e56fe7248466b66306a65868ae7
 Patch0:		%{name}-ac.patch
 URL:		http://www.ossp.org/pkg/lib/al/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,7 +23,14 @@ semantical data attribution through by-chunk labeling. It also has
 convenient chunk traversal methods and optional OSSP ex based
 exception handling.
 
-#%%description -l pl
+%description -l pl
+OSSP al definiuje abstrakcyjne typy danych dla bufora danych, który
+mo¿e ³±czyæ, przemieszczaæ i ucinaæ porcje danych w strumieniu, ale
+unika samego kopiowania. Zosta³a stworzona, aby obs³ugiwaæ wydajnie
+strumienie komunikacyjne pomiêdzy modu³ami oprogramowania. Udostêpnia
+w szczególno¶ci elastyczne semantyczne przypisywanie danych poprzez
+oznaczanie porcji. Ma tak¿e wygodne metody przechodzenia porcji i
+opcjonaln± obs³ugê wyj±tków w oparciu o OSSP ex.
 
 %package devel
 Summary:	OSSP al - Assembly Line - header files and development libraries
@@ -73,9 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
