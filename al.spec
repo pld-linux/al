@@ -1,8 +1,12 @@
+#
+# Conditional build:
+%bcond_with	tests	# perform "make check" (segfaults after tests)
+#
 Summary:	OSSP al - Assembly Line
 Summary(pl):	OSSP al - biblioteka Assembly Line ("linii monta¿owej")
 Name:		al
 Version:	0.9.1
-Release:	0.2
+Release:	0.3
 Epoch:		0
 License:	distributable (see README)
 Group:		Libraries
@@ -61,7 +65,7 @@ OSSP al - biblioteka Assembly Line - biblioteki statyczne.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 mv -f aclocal.m4 acinclude.m4
@@ -71,7 +75,8 @@ mv -f aclocal.m4 acinclude.m4
 %configure \
 	--with-ex
 %{__make}
-#%%{__make} check //segfaults after passing tests
+
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
