@@ -9,3 +9,14 @@
  dnl AL_CHECK_ALL
  
  AC_CHECK_EXTLIB([OSSP ex], ex, __ex_ctx, ex.h,
+--- al-0.9.1/Makefile.in~	2002-12-16 15:46:11.000000000 +0100
++++ al-0.9.1/Makefile.in	2004-11-28 02:36:06.000000000 +0100
+@@ -71,7 +71,7 @@
+ 
+ $(LIB_NAME): $(LIB_OBJS)
+ 	@$(LIBTOOL) --mode=link $(CC) -o $(LIB_NAME) $(LIB_OBJS) -rpath $(libdir) \
+-	    -version-info `$(SHTOOL) version -l txt -d libtool VERSION`
++	    -version-info `$(SHTOOL) version -l txt -d libtool VERSION` $(LIBS)
+ 
+ $(TST_NAME): $(TST_OBJS) $(LIB_NAME)
+ 	@$(LIBTOOL) --mode=link $(CC) $(LDFLAGS) -o $(TST_NAME) $(TST_OBJS) $(LIB_NAME) $(LIBS)
