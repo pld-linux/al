@@ -8,7 +8,7 @@ Group:		Libraries
 Source0:	ftp://ftp.ossp.org/pkg/lib/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	eba90e56fe7248466b66306a65868ae7
 Patch0:		%{name}-ac.patch
-URL:		http://www.ossp.org/pkg/lib/%{name}/
+URL:		http://www.ossp.org/pkg/lib/al/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
