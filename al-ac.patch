@@ -1,0 +1,11 @@
+--- al-0.9.1/configure.ac~	2004-11-21 14:14:19.325639688 +0100
++++ al-0.9.1/configure.ac	2004-11-21 14:14:56.723954280 +0100
+@@ -44,7 +44,7 @@
+ AC_PROG_LIBTOOL
+ 
+ dnl ## local checks go here (not yet)
+-dnl sinclude(al.ac)
++#
+ dnl AL_CHECK_ALL
+ 
+ AC_CHECK_EXTLIB([OSSP ex], ex, __ex_ctx, ex.h,
