@@ -1,17 +1,18 @@
 #
 # Conditional build:
-%bcond_with	tests	# perform "make check" (segfaults after tests)
+%bcond_without  static_libs	# don't build static libraries
+%bcond_with	tests		# perform "make check" (segfaults after tests)
 #
 Summary:	OSSP al - Assembly Line
 Summary(pl):	OSSP al - biblioteka Assembly Line ("linii monta¿owej")
 Name:		al
-Version:	0.9.1
-Release:	0.3
+Version:	0.9.3
+Release:	0.1
 Epoch:		0
 License:	distributable (see README)
 Group:		Libraries
 Source0:	ftp://ftp.ossp.org/pkg/lib/al/%{name}-%{version}.tar.gz
-# Source0-md5:	eba90e56fe7248466b66306a65868ae7
+# Source0-md5:	ef943a29d1fb89ed4fd5556844cbc542
 Patch0:		%{name}-ac.patch
 URL:		http://www.ossp.org/pkg/lib/al/
 BuildRequires:	autoconf
@@ -74,7 +75,8 @@ mv -f aclocal.m4 acinclude.m4
 %{__autoconf}
 %configure \
 	%{?debug:--enable-debug} \
-	--with-ex
+	--with-ex \
+	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
 %{__make}
 
 %{?with_tests:%{__make} check}
@@ -104,6 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %{_mandir}/man3/*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.a
+%endif
