@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without  static_libs	# don't build static libraries
+%bcond_without	static_libs	# don't build static libraries
 %bcond_with	tests		# perform "make check" (segfaults after tests)
 #
 Summary:	OSSP al - Assembly Line
