@@ -66,7 +66,7 @@ OSSP al - biblioteka Assembly Line - biblioteki statyczne.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 mv -f aclocal.m4 acinclude.m4
